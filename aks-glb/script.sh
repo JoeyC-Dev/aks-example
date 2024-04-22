@@ -211,5 +211,5 @@ az container exec -n ${aks2} -g ${rG} \
 --exec-command "curl ${glb_ip_address}"
 
 # Clean resources
-echo 'Press "y" to clean resources after you tested it out.'
+echo 'Demo completed. Press "y" to clean resources after you tested it out.'
 az group delete -n ${rG} --no-wait
