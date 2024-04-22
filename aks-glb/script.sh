@@ -14,7 +14,7 @@ glb=my_glb_${randomNum}
 glb_region=${rG_region}
 glb_ip=my_glb_ip
 
-# Create resourcre group
+# Create resource group
 echo "Your resource group will be: ${rG}"
 az group create -n ${rG} -l ${rG_region} -o none
 
