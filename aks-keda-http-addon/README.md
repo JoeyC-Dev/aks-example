@@ -6,4 +6,5 @@ This script will create:
 - One AKS instance with approuting and keda
 - One Azure Load Testing instance
 
-> Note: This script will use `nip.io` as external ip-to-domain service in Ingress for Load Testing.  
+> [!NOTE]
+> This script will use `nip.io` as external ip-to-domain service in Ingress for Load Testing, which is not under control.  
