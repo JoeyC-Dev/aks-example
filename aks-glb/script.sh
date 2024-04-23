@@ -1,5 +1,5 @@
 #!/bin/bash
-# User story: https://github.com/Azure/AKS/issues/2535
+# https://blog.joeyc.dev/posts/aks-glb/
 
 randomNum=$(echo $RANDOM)
 rG_region=westus
