@@ -83,6 +83,14 @@ sleep 3; curl -H "Host: ${FQDN}" ${ip}/path1
 echo ""
 
 # Deploy Azure load testing
+# Prompt confirmation pop-up
+read -p "The Load Testing service will be deployed. Continue? (Y/N) " -n 1 -r
+echo ""
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 
+fi
+
 echo "Deploying Azure Load Testing for stress testing..."
 az load create -n ${loadTest} -g ${rG} -o none
 
