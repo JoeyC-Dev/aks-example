@@ -79,7 +79,7 @@ kubectl patch HTTPScaledObject xkcd --type=json \
 
 # Test output
 echo "The following output is the example output from application:"
-sleep 3; curl -H "Host: ${FQDN}" ${ip}/path1
+sleep 5; curl -H "Host: ${FQDN}" ${ip}/path1
 echo ""
 
 # Deploy Azure load testing
