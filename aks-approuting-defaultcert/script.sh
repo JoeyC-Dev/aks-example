@@ -11,6 +11,7 @@ aksVer=1.30
 cert_name=example-meow-${ranNum}
 
 # Initial set-up
+echo "Your resource group will be: ${rG}"
 az group create -n ${rG} -l ${region} -o none
 
 az aks create -n ${aks} -g ${rG} --kubernetes-version ${aksVer} --node-os-upgrade-channel None \
@@ -28,9 +29,12 @@ kvURI=$(az resource show -n ${kv} -g ${rG} --namespace Microsoft.KeyVault --reso
 ## Attach Key Vault to approuting
 az aks approuting update -n ${aks} -g ${rG} --enable-kv --attach-kv ${kvURI} -o none
 
-# ## Grant permission to KV
+# ## Grant permission to KV (This process is not needed)
 # kvprovider_mi_client_id=$(az identity show --resource-group ${infra_rG} --name "azurekeyvaultsecretsprovider-${aks}" --query clientId -o tsv)
 # az keyvault set-policy -n ${kv} --certificate-permissions get --spn ${kvprovider_mi_client_id} -o none
+
+# webapp_mi_client_id=$(az identity show --resource-group ${infra_rG} --name "webapprouting-${aks}" --query clientId -o tsv)
+# az keyvault set-policy -n ${kv} --certificate-permissions get --spn ${webapp_mi_client_id} -o none
 
 ## Generate certificate
 openssl req -new -x509 -nodes -subj "/CN=${cert_name}-kv" -addext "subjectAltName=DNS:${cert_name}-kv" -out ${cert_name}-kv.crt -keyout ${cert_name}-kv.key
