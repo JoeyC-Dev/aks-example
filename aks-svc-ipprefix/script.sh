@@ -7,6 +7,7 @@ ipPrefix=ipprefix-${ranNum}
 ipPrefixLength=30
 location=southeastasia
 
+# Create resource group
 echo "Your resource group will be: ${rG}"
 az group create -n ${rG} -l ${location} -o none
 
@@ -35,13 +36,11 @@ then
 aksIdentityID=$(az aks show -n ${aks} -g ${rG} \
 --query identity.principalId -o tsv)
 fi
-
 if [[ "$aksIdentityType" == "UserAssigned" ]]
 then
 aksIdentityID=$(az aks show -n ${aks} -g ${rG} \
 --query identity.userAssignedIdentities.*.principalId -o tsv)
 fi
-
 if [[ "$aksIdentityType" == "" ]]
 then
 aksSPclientID=$(az aks show -n ${aks} -g ${rG} \
