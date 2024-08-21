@@ -1,3 +1,6 @@
+#!/bin/bash
+# https://blog.joeyc.dev/posts/aks-svc-ipprefix/
+
 # Basic parameter
 ranNum=$(echo $RANDOM)
 rG=aks-ipprefix-${ranNum}
