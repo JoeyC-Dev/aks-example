@@ -1,7 +1,8 @@
-This script is a demonstration showing how to set up a service with an external IP from a specific IP prefix.
+This script is a demonstration showing how to mount Azure storage without setting up account access key in AKS with different approaches.
   
-Link: https://blog.joeyc.dev/posts/aks-svc-ipprefix/
+Link: https://blog.joeyc.dev/posts/aks-non-token-storage/
   
 This script will create:
 - One AKS instance 
-- One public IP prefix resource
+- Three storage accounts
+- One Azure Disk
