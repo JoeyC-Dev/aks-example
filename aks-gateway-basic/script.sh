@@ -383,8 +383,6 @@ curl -s http://${routeDomain}/external | grep "External Service Page</div>"
 ## Cert-manager installation
 helm upgrade --install cert-manager oci://quay.io/jetstack/charts/cert-manager --create-namespace --namespace cert-manager \
   --set crds.enabled=true \
-  --set config.apiVersion="controller.config.cert-manager.io/v1alpha1" \
-  --set config.kind="ControllerConfiguration" \
   --set config.enableGatewayAPI=true
 
 ## Re-configure Gateway
