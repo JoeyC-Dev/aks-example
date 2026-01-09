@@ -394,8 +394,6 @@ metadata:
   namespace: default-service-and-gateway
   labels:
     app.kubernetes.io/component: gateway-api
-  annotations:
-    cert-manager.io/issuer: domain-cert-issuer
 spec:
   gatewayClassName: nginx
   listeners:
